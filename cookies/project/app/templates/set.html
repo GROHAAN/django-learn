@@ -1,0 +1,27 @@
+<form action="{% url 'set_data' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+   
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="text"  name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+   
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <br><br>
+
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;&nbsp; 
+  <button type="button"><a href="{% url 'landing' %}">landing</a></button><br><br>
+
+</form>
