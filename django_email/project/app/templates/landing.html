@@ -1,0 +1,10 @@
+<form action="{% url 'send_otp' %}" method="post">
+    {% csrf_token %}
+<h1>Django Email Service</h1><br><br>
+{{msg}} <br><br>
+
+Enter email :- <input type="text" placeholder="Enter your mail id" name="email"><br><br>
+
+<button type="submit">Send_otp</button>
+
+</form>
