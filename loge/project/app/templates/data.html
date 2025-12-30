@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+
+{% comment %} {{data}} {% endcomment %}
+
+
+{% for i in data %}
+    {{i.name}}
+    {{i.email}}
+    {{i.contact}}
+
+{% endfor %}
+{% endblock content %}
+    
