@@ -1,0 +1,48 @@
+body {
+            height: 100vh;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 18px;
+            color: #fff;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            height: 42px;
+        }
+
+        .input-group-text {
+            border-radius: 12px 0 0 12px;
+            background: #fff;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+            border: none;
+            border-radius: 30px;
+            height: 45px;
+            font-weight: 600;
+        }
+
+        label {
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        .title {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .small-error {
+            font-size: 0.75rem;
+        }
