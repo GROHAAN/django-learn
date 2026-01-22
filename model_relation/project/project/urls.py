@@ -24,4 +24,6 @@ urlpatterns = [
     path('',landing, name='landing'),
     path('student/', student, name='student'),
     path('aadhar/', aadhar, name='aadhar'),
+    path('forward/', forward, name='forward'),
+    path('reverse/', reverse, name='reverse'),
 ]

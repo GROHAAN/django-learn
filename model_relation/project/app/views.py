@@ -34,3 +34,29 @@ def  student(req):
         return redirect('student')
     all_aadhar=Aadhar.objects.all()
     return render(req, 'student.html', {'all_aadhar': all_aadhar})
+
+
+def forward(req):
+    #without using related_name
+    data= Student.objects.all()
+    for i in data:
+        print(i.name,i.age,i.contact,i.aadhar.aadhar_no,i.aadhar.created_by)
+   
+   
+    # secnd way using select_related
+     
+    # data= Student.objects.select_related('aadhar')
+    # for i in data:
+    #     print(i.name,i.age,i.contact,i.aadhar.aadhar_no,i.aadhar.created_by)
+
+
+def reverse(req):
+    #without using related_name
+    # data= Aadhar.objects.all()
+    # for i in data:
+    #     print(i.aadhar_no,i.created_by,i.student.name,i.student.age,i.student.contact)
+       
+    # second way using select_related
+    data= Aadhar.objects.select_related('student')
+    for i in data:
+        print(i.aadhar_no,i.created_by,i.student.name,i.student.age,i.student.contact)
