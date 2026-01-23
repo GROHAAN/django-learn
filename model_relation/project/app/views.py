@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Aadhar,Student
+from .models import Aadhar,Student,Employee,Department
 from django.contrib import messages
 
 
@@ -36,27 +36,66 @@ def  student(req):
     return render(req, 'student.html', {'all_aadhar': all_aadhar})
 
 
+
+
+#  one to one relationship queries
+# def forward(req):
+#     #without using related_name
+#     data= Student.objects.all()
+#     for i in data:
+#         print(i.name,i.age,i.contact,i.aadhar.aadhar_no,i.aadhar.created_by)
+   
+   
+#     # secnd way using select_related
+     
+#     # data= Student.objects.select_related('aadhar')
+#     # for i in data:
+#     #     print(i.name,i.age,i.contact,i.aadhar.aadhar_no,i.aadhar.created_by)
+
+
+# def reverse(req):
+#     #without using related_name
+#     # data= Aadhar.objects.all()
+#     # for i in data:
+#     #     print(i.aadhar_no,i.created_by,i.student.name,i.student.age,i.student.contact)
+       
+#     # second way using select_related
+#     # data= Aadhar.objects.select_related('student')
+#     # for i in data:
+#     #     print(i.aadhar_no,i.created_by,i.student.name,i.student.age,i.student.contact)
+
+
+
+
+
+# one to many relationship queries
 def forward(req):
     #without using related_name
-    data= Student.objects.all()
-    for i in data:
-        print(i.name,i.age,i.contact,i.aadhar.aadhar_no,i.aadhar.created_by)
-   
-   
-    # secnd way using select_related
-     
-    # data= Student.objects.select_related('aadhar')
+    # data = Employee.objects.all()
     # for i in data:
-    #     print(i.name,i.age,i.contact,i.aadhar.aadhar_no,i.aadhar.created_by)
+    #     print(i.e_dep.d_name, i.e_dep.d_head)
+
+    # with using select_related
+    data = Employee.objects.select_related('e_dep')
+    for i in data: 
+        print(i.e_name, i.e_email, i.e_contact, i.e_dep.d_name, i.e_dep.d_head)
+
+    
+
 
 
 def reverse(req):
-    #without using related_name
-    # data= Aadhar.objects.all()
+    # without using related_name
+    # data = Department.objects.all()
     # for i in data:
-    #     print(i.aadhar_no,i.created_by,i.student.name,i.student.age,i.student.contact)
-       
-    # second way using select_related
-    data= Aadhar.objects.select_related('student')
+    #     data1 = i.employee_set.all()
+    #     for j in data1:
+    #         print(i.d_name, i.d_head, " ==== ", j.e_name, j.e_email, j.e_contact)
+
+
+    # with using prefetch_related
+    data = Department.objects.prefetch_related('dep')
     for i in data:
-        print(i.aadhar_no,i.created_by,i.student.name,i.student.age,i.student.contact)
+        emp = i.dep.all()
+        for j in emp:
+            print(i.d_name, i.d_head," ==== ", j.e_name, j.e_email, j.e_contact)

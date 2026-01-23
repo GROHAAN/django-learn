@@ -19,3 +19,22 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Department(models.Model):
+    d_name = models.CharField(max_length=20)
+    d_head = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.d_name
+    
+class Employee(models.Model):
+    e_name = models.CharField(max_length=20)
+    e_email = models.EmailField()
+    e_contact = models.CharField(max_length=10)
+    # e_dep = models.ForeignKey(Department, on_delete=models.CASCADE)
+    e_dep = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='dep')
+
+
+    def __str__(self):
+        return self.e_name
