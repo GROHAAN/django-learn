@@ -99,3 +99,11 @@ def reverse(req):
         emp = i.dep.all()
         for j in emp:
             print(i.d_name, i.d_head," ==== ", j.e_name, j.e_email, j.e_contact)
+
+
+# # many to many relationship queries
+# def forword_data(req):
+#     # first method
+#     data = Student.objects.all()
+#     for i in data:
+#         print(i.name,i.courses.all())
